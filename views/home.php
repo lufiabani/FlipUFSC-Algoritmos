@@ -1,6 +1,6 @@
 <?php
 
-include_once('verifica.php');
+include_once('../verifica.php');
 
 ?>
 
@@ -17,6 +17,6 @@ include_once('verifica.php');
 
     <a href="questao.php">JOGAR</a>
 
-    <a href="logout.php">Sair do sistema</a>
+    <a href="../logout.php">Sair do sistema</a>
 </body>
 </html>

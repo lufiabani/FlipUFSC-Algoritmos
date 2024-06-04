@@ -3,7 +3,7 @@
 @session_start();
 
 if (@$_SESSION['nome']){
-    header("Location: home.php");
+    header("Location: views/home.php");
 }
 
 ?>
@@ -19,7 +19,7 @@ if (@$_SESSION['nome']){
     <h1>LOGIN</h1>
 
     <form action="login.php" method="POST">
-        <input type="number" placeholder="Matrícula" name="matricula">
+        <input type="number" placeholder="Matrícula" name="matricula" required>
         <input type="submit" name="btnLogin">
     </form>
 </body>

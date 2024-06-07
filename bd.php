@@ -1,7 +1,7 @@
 <?php
 // Configurações do banco de dados
 $host = 'localhost';  // Endereço do servidor de banco de dados
-$db   = 'flipufsc';  // Nome do banco de dados
+$db   = 'flipufsc2';  // Nome do banco de dados
 $user = 'root';  // Nome de usuário do banco de dados
 $pass = '';  // Senha do banco de dados
 $charset = 'utf8mb4';  // Charset
@@ -19,7 +19,6 @@ $options = [
 try {
     // Cria uma nova instância PDO
     $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "Conexão bem-sucedida!";
 } catch (\PDOException $e) {
     // Em caso de erro, exibe a mensagem de erro
     throw new \PDOException($e->getMessage(), (int)$e->getCode());

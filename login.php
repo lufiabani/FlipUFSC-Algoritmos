@@ -11,6 +11,7 @@ if(@$_POST['btnLogin']){
 
     if(count($resultado) == 1){
         $_SESSION['nome'] = $resultado[0]['nome'];
+        $_SESSION['usuario_id'] = $resultado[0]['id'];
         $_SESSION['pontuacao'] = $resultado[0]['pontuacao'];
         header("Location: views/home.php");
     } else {

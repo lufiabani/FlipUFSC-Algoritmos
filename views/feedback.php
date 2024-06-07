@@ -38,4 +38,5 @@ unset($_SESSION['resultado']);
 unset($_SESSION['pontuacao_rodada']);
 ?>
 
+<a href="ranking.php">Visualizar Ranking</a>
 <a href="home.php">Voltar a tela inicial</a>

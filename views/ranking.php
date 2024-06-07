@@ -1,0 +1,27 @@
+<?php
+include_once('../bd.php');
+include_once('../verifica.php');
+
+$sql = "SELECT * FROM alunos ORDER BY pontuacao DESC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<table border="2">
+    <tr>
+        <th>Lugar</th>
+        <th>Nome</th>
+        <th>Pontuação</th>
+    </tr>
+    <?php 
+    for ($i = 0; $i < 5; $i++) { ?>
+    <tr>
+        <td><?php echo $i+1; ?></td>
+        <td><?php echo $alunos[$i]['nome']; ?></td>
+        <td><?php echo $alunos[$i]['pontuacao']; ?></td>
+    </tr>
+    <?php } ?>
+</table>
+
+<a href="jogadores.php">Ver ranking completo</a>

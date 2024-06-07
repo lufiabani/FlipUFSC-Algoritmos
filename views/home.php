@@ -16,6 +16,8 @@ include_once('../verifica.php');
     <h3>PONTUAÇÃO: <?php echo $_SESSION['pontuacao']; ?></h3>
 
     <a href="questao.php">JOGAR</a>
+    <a href="ranking.php">RANKING</a>
+
 
     <a href="../logout.php">Sair do sistema</a>
 </body>

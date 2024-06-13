@@ -1,0 +1,112 @@
+:root{
+    --cor-fundo: #193D8B;
+    --cor-branco: #ffffff;
+    --cor-amarelo: #F2CD3A;
+    --cor-cinza: rgb(145, 144, 144);
+}
+
+@font-face {
+    font-family: 'Arcade Game';
+    src: url('fonts/ARCADE_N.ttf') format('truetype');
+}
+
+body{
+    background-color: var(--cor-fundo);
+}
+
+.container{
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    justify-content: center;
+    text-align: center;
+}
+
+.title-login{
+    font-family: 'Arcade Game', sans-serif;
+    color: var(--cor-branco);
+    font-size: 20pt;
+    margin-top: 20px;
+}
+
+.title-flipufsc{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Arcade Game', sans-serif;
+    font-size: 60pt;
+    letter-spacing: 5px;
+    margin-top: 60px;
+}
+
+.flip{
+    color: var(--cor-branco);
+}
+
+.ufsc{
+    color: var(--cor-amarelo);
+}
+
+.input-matricula{
+    background-color: var(--cor-cinza);
+    padding: 5px;
+    border-top: solid 2px rgb(70, 70, 70);
+    border-left: solid 2px rgb(70, 70, 70);
+    border-right: solid 1px var(--cor-branco);
+    border-bottom: solid 1px var(--cor-branco);
+    margin-top: 30px;
+}
+
+.fa-user{
+    margin: 0 5px 0 5px;
+}
+
+.login-matricula{
+    border-top: solid 2px rgb(70, 70, 70);
+    border-left: solid 2px rgb(70, 70, 70);
+    border-right: solid 1px var(--cor-branco);
+    border-bottom: solid 1px var(--cor-branco);
+}
+
+.login-matricula::placeholder {
+    font-family: 'Arcade Game', sans-serif;
+    font-size: 70%;
+    color: var(--cor-cinza);
+}
+
+.login-submit{
+    font-family: 'Arcade Game', sans-serif;
+    font-size: 15pt;
+    border-top: solid 2px rgb(70, 70, 70);
+    border-left: solid 2px rgb(70, 70, 70);
+    border-right: solid 1px var(--cor-branco);
+    border-bottom: solid 1px var(--cor-branco);
+    color: rgb(70, 70, 70);
+    background-color: var(--cor-cinza);
+    margin-top: 20px;
+    transition: 500ms;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-submit:hover{
+    border-top: solid 1px var(--cor-branco);
+    border-left: solid 1px var(--cor-branco);
+    border-right: none;
+    border-bottom: none;
+    transition: 500ms;
+    box-shadow: none;
+}
+
+@media screen and (max-width: 700px) {
+    .title-flipufsc {
+        font-size: 22pt;
+    }
+
+    .title-login{
+        font-size: 15pt;
+    }
+
+    .login-submit{
+        font-size: 10pt;
+    }
+}

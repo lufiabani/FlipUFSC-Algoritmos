@@ -1,0 +1,114 @@
+
+@font-face {
+    font-family: 'Arcade Game';
+    src: url('fonts/ARCADE_N.TTF') format('truetype');
+}
+
+:root{
+    --cor-fundo: #193D8B;
+    --cor-branco: #ffffff;
+    --cor-amarelo: #F2CD3A;
+    --cor-cinza: rgb(145, 144, 144);
+}
+
+body{
+    background-color: var(--cor-fundo);
+}
+
+/* HOME.PHP */
+.title-home{
+    font-family: 'Arcade Game';
+    font-size: 20pt;
+    color: var(--cor-branco);
+}
+
+.home-nome{
+    color: var(--cor-amarelo);
+}
+
+.pontuacao-home{
+    font-family: 'Arcade Game';
+    font-size: 20pt;
+    color: var(--cor-branco);
+}
+
+.home-pontuacao{
+    font-family: 'Arcade Game';
+    font-size: 40pt;
+    color: var(--cor-amarelo);
+}
+
+.pontuacao-home, .home-pontuacao {
+    display: block;
+    width: 100%;
+}
+
+.home-titulos{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.home-pontos{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.home-bottons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-jogar, .home-ranking, .home-sair {
+    margin: 20px;
+    text-align: center;
+}
+
+.botton-home{
+    font-family: 'Arcade Game', sans-serif;
+    font-size: 10pt;
+    border-top: solid 2px rgb(70, 70, 70);
+    border-left: solid 2px rgb(70, 70, 70);
+    border-right: solid 1px var(--cor-branco);
+    border-bottom: solid 1px var(--cor-branco);
+    color: rgb(70, 70, 70);
+    background-color: var(--cor-cinza);
+    margin-top: 20px;
+    transition: 500ms;
+    padding: 5px;
+    
+    text-decoration: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.botton-home:hover{
+    border-top: solid 1px var(--cor-branco);
+    border-left: solid 1px var(--cor-branco);
+    border-right: none;
+    border-bottom: none;
+    text-decoration: none;
+    color: rgb(70, 70, 70);
+    box-shadow: none;
+    transition: 500ms;
+}
+
+.botton-home:focus, .botton-home:active {
+    color: rgb(70, 70, 70);
+}
+
+@media screen and (max-width: 700px) {
+    .title-home{
+        font-size: 15pt;
+    }
+    .home-nome{
+        display: flex;
+    }
+    .home-pontos{
+        margin-top: 25px;
+    }
+}

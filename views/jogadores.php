@@ -60,8 +60,7 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     table {
         width: 80%;
         border-collapse: collapse;
-        margin-bottom: 20px;
-        margin-top: 10px;
+        margin: 20px auto;
     }
 
     table,

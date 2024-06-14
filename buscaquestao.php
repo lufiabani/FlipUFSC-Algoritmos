@@ -1,6 +1,7 @@
 <?php
 
 include_once('bd.php');
+include_once('verifica.php');
 
 $sql = "SELECT * FROM questoes";
 $stmt = $pdo->prepare($sql);

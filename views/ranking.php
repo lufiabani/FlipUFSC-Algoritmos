@@ -6,6 +6,17 @@ $sql = "SELECT * FROM alunos ORDER BY pontuacao DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$userId = $_SESSION['usuario_id'];
+
+$userPosition = -1;
+for ($i = 0; $i < count($alunos); $i++) {
+    if ($alunos[$i]['id'] == $userId) {
+        $userPosition = $i;
+        break;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -85,6 +96,29 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     .pontuacao {
         color: var(--cor-amarelo);
+    }
+
+    .tres-pontinhos {
+        font-family: 'Arcade Game 2';
+        font-size: 0.8em;
+        color: var(--cor-cinza);
+        text-align: center;
+    }
+
+    .primeiro-lugar{
+        font-family: 'Arcade Game 2';
+        font-size: 0.8em;
+        color: var(--cor-vermelho);
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .sua-frente{
+        font-family: 'Arcade Game 2';
+        font-size: 0.8em;
+        color: var(--cor-cinza);
+        text-align: center;
+        margin-bottom: 0;
     }
 
     .buttons-feedback {
@@ -170,8 +204,11 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td style='background-color: var(--cor-vermelho); border: solid 2px black;'>
                     <i class="fa-solid fa-crown" style='color: var(--cor-amarelo);'></i>
                 </td>
-                <td style='background-color: var(--cor-vermelho); color: var(--cor-branco); border: solid 2px black;'><?php echo $i + 1; ?></td>
-                <td style='background-color: var(--cor-amarelo); color: var(--cor-branco); border: solid 2px var(--cor-vermelho);'><?php echo htmlspecialchars($alunos[$i]['nome']); ?></td>
+                <td style='background-color: var(--cor-vermelho); color: var(--cor-branco); border: solid 2px black;'>
+                    <?php echo $i + 1; ?></td>
+                <td
+                    style='background-color: var(--cor-amarelo); color: var(--cor-branco); border: solid 2px var(--cor-vermelho);'>
+                    <?php echo htmlspecialchars($alunos[$i]['nome']); ?></td>
                 <td style='background-color: var(--cor-vermelho); color: var(--cor-amarelo); border: solid 2px black;'>
                     <?php echo isset($alunos[$i]['pontuacao']) ? htmlspecialchars($alunos[$i]['pontuacao']) : 0; ?>
                 </td>
@@ -183,8 +220,11 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td style='background-color: var(--cor-ranking); border: solid 2px black;'>
                     <i class="fa-solid fa-medal" style='color: var(--cor-amarelo);'></i>
                 </td>
-                <td style='background-color: var(--cor-ranking); color: var(--cor-branco); border: solid 2px black;'><?php echo $i + 1; ?></td>
-                <td style='background-color: var(--cor-ranking-fundo); color: var(--cor-cinza); border: solid 2px black;'><?php echo htmlspecialchars($alunos[$i]['nome']); ?></td>
+                <td style='background-color: var(--cor-ranking); color: var(--cor-branco); border: solid 2px black;'>
+                    <?php echo $i + 1; ?></td>
+                <td
+                    style='background-color: var(--cor-ranking-fundo); color: var(--cor-cinza); border: solid 2px black;'>
+                    <?php echo htmlspecialchars($alunos[$i]['nome']); ?></td>
                 <td style='background-color: var(--cor-ranking); color: var(--cor-amarelo); border: solid 2px black;'>
                     <?php echo isset($alunos[$i]['pontuacao']) ? htmlspecialchars($alunos[$i]['pontuacao']) : 0; ?>
                 </td>
@@ -193,7 +233,8 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 } else { // Others
             ?>
             <tr>
-                <td style='background-color: var(--cor-fundo-clara);'><i style='color: var(--cor-branco);' class="fa-solid fa-user"></i></td>
+                <td style='background-color: var(--cor-fundo-clara);'><i style='color: var(--cor-branco);'
+                        class="fa-solid fa-user"></i></td>
                 <td><?php echo $i + 1; ?></td>
                 <td><?php echo htmlspecialchars($alunos[$i]['nome']); ?></td>
                 <td style='color: var(--cor-amarelo);'>
@@ -202,6 +243,68 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>
             <?php } } ?>
         </table>
+
+        <h1 class="tres-pontinhos">...</h1>
+
+        <?php if ($userPosition != -1) {
+            if ($userPosition == 0) { // First place
+        ?>
+        <p class='primeiro-lugar'>Parabéns! Você está em primeiro lugar! <i style="color: var(--cor-amarelo); margin-left: 4px;" class="fa-solid fa-trophy"></i></p>
+        <table>
+            <tr>
+                <td style='background-color: var(--cor-vermelho); border: solid 2px black;'>
+                    <i class="fa-solid fa-crown" style='color: var(--cor-amarelo);'></i>
+                </td>
+                <td style='background-color: var(--cor-vermelho); color: var(--cor-branco); border: solid 2px black;'>
+                    <?php echo $userPosition + 1; ?></td>
+                <td style='background-color: var(--cor-amarelo); color: var(--cor-branco); border: solid 2px var(--cor-vermelho);'>
+                    <?php echo htmlspecialchars($alunos[$userPosition]['nome']); ?></td>
+                <td style='background-color: var(--cor-vermelho); color: var(--cor-amarelo); border: solid 2px black;'>
+                    <?php echo isset($alunos[$userPosition]['pontuacao']) ? htmlspecialchars($alunos[$userPosition]['pontuacao']) : 0; ?>
+                </td>
+            </tr>
+        </table>
+
+        <?php
+            } elseif ($userPosition == 1 || $userPosition == 2) { // Second or third place
+        ?>
+        <table>
+            <p class='sua-frente'>Você está atrás de <span style="color: var(--cor-vermelho)"><?php echo htmlspecialchars($alunos[$userPosition - 1]['nome']); ?></span>!</p>
+            <tr>
+                <td style='background-color: var(--cor-ranking); border: solid 2px black;'>
+                    <i class="fa-solid fa-medal" style='color: var(--cor-amarelo);'></i>
+                </td>
+                <td style='background-color: var(--cor-ranking); color: var(--cor-branco); border: solid 2px black;'>
+                    <?php echo $userPosition + 1; ?></td>
+                <td style='background-color: var(--cor-ranking-fundo); color: var(--cor-cinza); border: solid 2px black;'>
+                    <?php echo htmlspecialchars($alunos[$userPosition]['nome']); ?></td>
+                <td style='background-color: var(--cor-ranking); color: var(--cor-amarelo); border: solid 2px black;'>
+                    <?php echo isset($alunos[$userPosition]['pontuacao']) ? htmlspecialchars($alunos[$userPosition]['pontuacao']) : 0; ?>
+                </td>
+            </tr>
+        </table>
+        
+        <?php
+            } else { // Other positions
+        ?>
+        <p class='sua-frente'>Você está atrás de <span style="color: var(--cor-vermelho)"><?php echo htmlspecialchars($alunos[$userPosition - 1]['nome']); ?></span>!</p>
+        <table>
+            <tr>
+                <td style='background-color: var(--cor-fundo-clara);'><i style='color: var(--cor-branco);'
+                        class="fa-solid fa-user"></i></td>
+                <td><?php echo $userPosition + 1; ?></td>
+                <td><?php echo htmlspecialchars($alunos[$userPosition]['nome']); ?></td>
+                <td style='color: var(--cor-amarelo);'>
+                    <?php echo isset($alunos[$userPosition]['pontuacao']) ? htmlspecialchars($alunos[$userPosition]['pontuacao']) : 0; ?>
+                </td>
+            </tr>
+        </table>
+        
+        <?php } } ?>
+
+
+
+
         <div style="text-align:center;" class="button-ranking">
             <a href="jogadores.php">Ver ranking completo</a>
         </div>

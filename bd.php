@@ -3,7 +3,7 @@
 $host = 'localhost';  // Endereço do servidor de banco de dados
 $db   = 'flipufsc2';  // Nome do banco de dados
 $user = 'root';  // Nome de usuário do banco de dados
-$pass = '';  // Senha do banco de dados
+$pass = 'Awds4321!';  // Senha do banco de dados
 $charset = 'utf8mb4';  // Charset
 
 // DSN (Data Source Name)

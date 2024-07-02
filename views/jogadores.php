@@ -61,6 +61,8 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         width: 80%;
         border-collapse: collapse;
         margin: 20px auto;
+        background: url('assets/Fabricio_pixelado.png') no-repeat center center;
+        background-size: 800px;
     }
 
     table,
@@ -112,6 +114,7 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         text-decoration: none;
         color: rgb(70, 70, 70);
     }
+    
 
     .container {
 
@@ -140,6 +143,9 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         a {
             font-size: 0.5em;
             margin-top: 8px;
+        }
+        table{
+            background-size: 250px;
         }
     }
     </style>

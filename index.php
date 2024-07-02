@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="assets/Logo_Flip.png" type="image/png">
     <style>
+    .title-flipufsc{
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: 'Arcade Game', sans-serif;
+        font-size: 60pt;
+        letter-spacing: 5px;
+        margin-top: 30px;
+    }
+
     .start-img {
         display: inline-block;
     }

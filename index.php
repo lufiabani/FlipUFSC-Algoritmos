@@ -54,10 +54,10 @@
     }
 
     @media screen and (max-width: 700px) {
-        .img-personagem {
-            width: 80px;
-        }
-        .start-img img {
+    .img-personagem {
+        width: 80px;
+    }
+    .start-img img {
         width: 80%;
         height: auto;
         margin-top: 50px;
@@ -70,6 +70,9 @@
     .img-ufsc {
         width: 50px;
         margin-left: 40px;
+    }
+    .title-flipufsc {
+        font-size: 22pt;
     }
 
     }
